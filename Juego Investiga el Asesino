@@ -1,0 +1,134 @@
+import random
+
+# Define los personajes, habitaciones y armas
+personajes = ["Dr. Smith", "Profesora Green", "Sr. Brown", "Sra. White", "Srta. Scarlet"]
+habitaciones = ["Mansión", "Comedor", "Biblioteca", "Sala de Billar", "Jardín"]
+armas = ["Candelabro", "Cuchillo", "Revólver", "Cuerda", "Llave inglesa"]
+
+# Genera una solución aleatoria
+def Aleatorio():
+    solucion = {
+        "personaje": random.choice(personajes),
+        "habitacion": random.choice(habitaciones),
+        "arma": random.choice(armas)
+    }
+    return solucion
+
+def hacer_pregunta(pregunta):
+    respuesta = input(pregunta + " (s/n): ").strip().lower()
+    while respuesta not in ["s", "n"]:
+        print("Por favor, responde con 's' o 'n'.")
+        respuesta = input(pregunta + " (s/n): ").strip().lower()
+    return respuesta == "s"
+
+def jugar_de_nuevo():
+    respuesta = hacer_pregunta("¿Quieres jugar de nuevo?")
+    return respuesta
+
+def jugar():
+    intentos = 0
+    solucion = Aleatorio()
+    while True:
+        intentos += 1
+
+        if solucion['personaje'] == "Dr. Smith":
+            texto = '''
+                En la elegante cena, todos disfrutaban de una conversación amigable. Sin embargo, después del postre,
+                se escuchó un estruendo proveniente de la sala de estar. Los invitados corrieron hacia donde escucharon el ruido
+                y encontraron el cuerpo sin vida del anfitrión, el Sr. Black, tendido en el suelo. Junto a él, se encontraba
+                un candelabro manchado de sangre, y no había señales de entrada forzada.
+
+                La investigación comenzó de inmediato, y cada uno de los personajes principales proporcionó sus coartadas:
+
+                -El Dr. Smith dijo que estaba en la biblioteca buscando un libro en ese momento.
+                -La Profesora Green afirmó que estaba en el comedor ordenando la vajilla.
+                -El Sr. Brown mencionó que estaba en el jardín cortando flores.
+                -La Sra. White alegó que había estado en la sala de billar jugando al billar.
+                -La Srta. Scarlet declaró que estaba en el jardín disfrutando de la noche.
+                '''
+        elif solucion['personaje'] == "Profesora Green":
+            texto = '''
+                En la elegante cena, todos disfrutaban de una conversación amigable. Sin embargo, después del postre,
+                se escuchó un estruendo proveniente de la sala de estar. Los invitados corrieron hacia donde escucharon el ruido
+                y encontraron el cuerpo sin vida del anfitrión, el Sr. Black, tendido en el suelo. Junto a él, se encontraba
+                un cuchillo manchado de sangre, y no había señales de entrada forzada.
+
+                La investigación comenzó de inmediato, y cada uno de los personajes principales proporcionó sus coartadas:
+
+                -El Dr. Smith dijo que estaba en la biblioteca buscando un libro en ese momento.
+                -La Profesora Green afirmó que estaba en el comedor ordenando la vajilla.
+                -El Sr. Brown mencionó que estaba en el jardín cortando flores.
+                -La Sra. White alegó que había estado en la sala de billar jugando al billar.
+                -La Srta. Scarlet declaró que estaba en el jardín disfrutando de la noche.
+                '''
+        elif solucion['personaje'] == "Sr. Brown":
+            texto = '''
+                En la elegante cena, todos disfrutaban de una conversación amigable. Sin embargo, después del postre,
+                se escuchó un estruendo proveniente de la sala de estar. Los invitados corrieron hacia donde escucharon el ruido
+                y encontraron el cuerpo sin vida del anfitrión, el Sr. Black, tendido en el suelo. Junto a él, se encontraba
+                un revólver manchado de sangre, y no había señales de entrada forzada.
+
+                La investigación comenzó de inmediato, y cada uno de los personajes principales proporcionó sus coartadas:
+
+                -El Dr. Smith dijo que estaba en la biblioteca buscando un libro en ese momento.
+                -La Profesora Green afirmó que estaba en el comedor ordenando la vajilla.
+                -El Sr. Brown mencionó que estaba en el jardín cortando flores.
+                -La Sra. White alegó que había estado en la sala de billar jugando al billar.
+                -La Srta. Scarlet declaró que estaba en el jardín disfrutando de la noche.
+                '''
+        elif solucion['personaje'] == "Sra. White":
+            texto = '''
+                En la elegante cena, todos disfrutaban de una conversación amigable. Sin embargo, después del postre,
+                se escuchó un estruendo proveniente de la sala de estar. Los invitados corrieron hacia donde escucharon el ruido
+                y encontraron el cuerpo sin vida del anfitrión, el Sr. Black, tendido en el suelo. Junto a él, se encontraba
+                una cuerda manchada de sangre, y no había señales de entrada forzada.
+
+                La investigación comenzó de inmediato, y cada uno de los personajes principales proporcionó sus coartadas:
+
+                -El Dr. Smith dijo que estaba en la biblioteca buscando un libro en ese momento.
+                -La Profesora Green afirmó que estaba en el comedor ordenando la vajilla.
+                -El Sr. Brown mencionó que estaba en el jardín cortando flores.
+                -La Sra. White alegó que había estado en la sala de billar jugando al billar.
+                -La Srta. Scarlet declaró que estaba en el jardín disfrutando de la noche.
+                '''
+        elif solucion['personaje'] == "Srta. Scarlet":
+            texto = '''
+                En la elegante cena, todos disfrutaban de una conversación amigable. Sin embargo, después del postre,
+                se escuchó un estruendo proveniente de la sala de estar. Los invitados corrieron hacia donde escucharon el ruido
+                y encontraron el cuerpo sin vida del anfitrión, el Sr. Black, tendido en el suelo. Junto a él, se encontraba
+                una llave inglesa manchada de sangre, y no había señales de entrada forzada.
+
+                La investigación comenzó de inmediato, y cada uno de los personajes principales proporcionó sus coartadas:
+
+                -El Dr. Smith dijo que estaba en la biblioteca buscando un libro en ese momento.
+                -La Profesora Green afirmó que estaba en el comedor ordenando la vajilla.
+                -El Sr. Brown mencionó que estaba en el jardín cortando flores.
+                -La Sra. White alegó que había estado en la sala de billar jugando al billar.
+                -La Srta. Scarlet declaró que estaba en el jardín disfrutando de la noche.
+                '''
+
+        print(texto)
+        suposicion_asesino = input("\n-----Quién es el asesino?-----\na)Dr. Smith \nb)Profesora Green \nc)Sr. Brown \nd)Sra. White \ne)Srta. Scarlet\n")
+        suposicion_ubicación = input("\n¿Dónde ocurrió?:\na)Mansión \nb)Comedor \nc)Biblioteca \nd)Sala de Billar \ne)Jardín\n")
+        suposición_arma = input("\n¿Con qué arma?:\na)Candelabro \nb)Cuchillo \nc)Revólver \nd)Cuerda \ne)Llave inglesa\n")
+
+        if (suposicion_asesino == 'a' and suposicion_ubicación == 'd' and suposición_arma == 'a') or (suposicion_asesino == 'b' and suposicion_ubicación == 'd' and suposición_arma == 'b') or (suposicion_asesino == 'c' and suposicion_ubicación == 'd' and suposición_arma == 'c') or (suposicion_asesino == 'd' and suposicion_ubicación == 'd' and suposición_arma == 'd') or (suposicion_asesino == 'e' and suposicion_ubicación == 'd' and suposición_arma == 'e'):
+            texto = '''
+                ¡Felicidades, acertaste!
+                '''
+            print(texto)
+            break
+        else:
+            texto = '''
+                Lo lamento, eso es incorrecto.
+                '''
+            print(texto)
+            print("Llevas " + str(intentos) + " intentos.\n")
+
+if __name__ == "__main__":
+    print("Bienvenido al juego de Clue en Python.")
+    while True:
+        jugar()
+        if not jugar_de_nuevo():
+            print("¡Gracias por jugar! Hasta luego.")
+            break
